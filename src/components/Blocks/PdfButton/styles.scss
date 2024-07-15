@@ -1,0 +1,32 @@
+.pdf-button {
+  border-radius: 5px;
+  background: var(--dark-blue);
+  padding: 11px 30px 7px 10px;
+
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+
+  color: var(--cream)!important;
+  font-family: var(--primary-font);
+  font-size: 22px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 100%;
+
+  display: block;
+  width: fit-content;
+  margin-bottom: 1rem;
+
+
+  &:hover {
+    color: var(--cream);
+    background-color: var(--orange);
+  }
+}
+
+@media screen and (max-width:992px) {
+  .pdf-button {
+    font-size: 20px;
+  }
+}

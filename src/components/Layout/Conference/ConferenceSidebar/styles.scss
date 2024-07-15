@@ -1,0 +1,130 @@
+.conference-sidebar {
+  .theme {
+    margin-bottom: 28px;
+
+    &:not(&:last-child) {
+      border-bottom: 1px solid rgba(55, 85, 127, 0.50);
+    }
+
+    h5 {
+      color: #92A5BE;
+      font-family: var(-primary-font);
+      font-size: 20px;
+      font-style: normal;
+      font-weight: 700;
+      line-height: 22px;
+      text-transform: uppercase;
+      margin: 0;
+      margin-bottom: 20px;
+    }
+
+    .topics {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+
+      li {
+        color: var(--dark-blue);
+        font-family: var(-primary-font);
+        font-size: 20px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 120%;
+        margin-bottom: 20px;
+        cursor: pointer;
+
+        span {
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          gap: 10px;
+        }
+
+        .sub-topics {
+          list-style: none;
+          padding-left: 20px;
+          margin-top: 24px;
+          display: none;
+
+          li {
+            color: var(--dark-blue);
+            font-family: var(--neue-font);
+            font-size: 18px;
+            font-style: normal;
+            font-weight: 450;
+            line-height: 115%;
+
+            &.active {
+              color: var(--orange);
+              font-weight: 700;
+            }
+          }
+        }
+
+        &.open {
+          color: var(--orange);
+
+          .sub-topics {
+            display: block;
+          }
+
+          span svg {
+            transform: rotate(-180deg);
+
+            path {
+              fill: var(--orange);
+            }
+          }
+        }
+
+        &.active {
+          span {
+            color: var(--orange);
+            font-weight: 700;
+          }
+        }
+      }
+    }
+  }
+
+  .mobile-close {
+    display: none;
+  }
+}
+
+@media screen and (max-width:992px) {
+  .conference-sidebar {
+    display: none;
+
+    &.mobile {
+      display: block;
+      position: fixed;
+      top: 0;
+      right: 0;
+      width: 100%;
+      height: 100dvh;
+      background-color: #EEF5FE;
+      z-index: 1000;
+      padding: 0 15px;
+      overflow-y: auto;
+
+      .mobile-close {
+        display: block;
+        text-align: right;
+        padding: 11px 0 30px 0;
+
+        button {
+          background: transparent;
+          border: none;
+        }
+      }
+
+      .theme {
+        h5 {
+          font-size: 20px;
+          line-height: 22px;
+        }
+      }
+    }
+  }
+}

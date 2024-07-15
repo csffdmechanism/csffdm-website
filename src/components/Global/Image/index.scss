@@ -1,0 +1,30 @@
+.image-wrapper {
+  height: 100%;
+
+  *:not(img) {
+    height: 100%;
+    width: 100%;
+  }
+
+  .caption {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 10px;
+    height: auto;
+
+    .image-caption {
+      color: var(--pearl);
+      font-family: var(--neue-font);
+      font-size: 16px;
+      font-style: normal;
+      font-weight: 450;
+      line-height: 125%;
+    }
+  }
+
+  &.wrapping {
+    float: left;
+    width: 40%;
+  }
+}

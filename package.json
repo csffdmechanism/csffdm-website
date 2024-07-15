@@ -1,0 +1,58 @@
+{
+  "name": "csfddm",
+  "version": "1.0.0",
+  "private": true,
+  "description": "CSFFDM",
+  "author": "Tectonica",
+  "keywords": [
+    "gatsby"
+  ],
+  "scripts": {
+    "develop": "gatsby develop",
+    "start": "gatsby develop",
+    "build": "gatsby build",
+    "serve": "gatsby serve",
+    "clean": "gatsby clean"
+  },
+  "license": "0BSD",
+  "dependencies": {
+    "@datocms/cma-client": "^3.3.5",
+    "@datocms/cma-client-browser": "^3.1.3",
+    "@datocms/cma-client-node": "^3.3.5",
+    "@gsap/react": "^2.1.0",
+    "axios": "^1.6.8",
+    "bootstrap": "5.2.3",
+    "datocms-structured-text-to-html-string": "^4.0.0",
+    "dotenv": "^16.4.4",
+    "gatsby": "^5.13.3",
+    "gatsby-plugin-image": "^3.13.1",
+    "gatsby-plugin-mailchimp": "^5.2.2",
+    "gatsby-plugin-netlify": "^5.1.1",
+    "gatsby-plugin-react-helmet": "^6.13.1",
+    "gatsby-plugin-sass": "^6.13.1",
+    "gatsby-plugin-sharp": "^5.13.1",
+    "gatsby-plugin-sitemap": "^6.13.1",
+    "gatsby-source-datocms": "^5.1.5",
+    "gatsby-source-filesystem": "^5.13.1",
+    "gatsby-transformer-sharp": "^5.13.1",
+    "googleapis": "^134.0.0",
+    "gsap": "^3.12.5",
+    "path": "^0.12.7",
+    "path-browserify": "^1.0.1",
+    "react": "^18.2.0",
+    "react-datocms": "^4.1.3",
+    "react-dom": "^18.2.0",
+    "react-helmet": "^6.1.0",
+    "react-slick": "^0.30.2",
+    "react-svg": "^16.1.33",
+    "sass": "^1.71.0",
+    "slick-carousel": "^1.8.1",
+    "webpack": "^5.92.1",
+    "webpack-cli": "^5.1.4",
+    "webpack-dev-server": "^5.0.4",
+    "webpack-filter-warnings-plugin": "^1.2.1"
+  },
+  "devDependencies": {
+    "prettier": "^3.2.5"
+  }
+}

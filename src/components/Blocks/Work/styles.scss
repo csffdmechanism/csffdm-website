@@ -1,0 +1,136 @@
+.work-section {
+  background-color: var(--cream);
+  padding: 4.375rem 0 8.75rem;
+
+  .row {
+    flex-wrap: nowrap;
+  }
+
+  .intro-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 100%;
+    margin-bottom: 3rem;
+
+    .introduction {
+      margin: 0;
+    }
+  }
+
+  .carousel .slick-list::after {
+    background-color: transparent;
+  }
+}
+
+.work-card {
+  padding: 50px 31px;
+  background: var(--yellow);
+  min-height: 552px;
+  position: relative;
+
+  a {
+    text-decoration: none;
+  }
+
+  .content {
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+    align-items: flex-start;
+    position: unset;
+
+    h3 {
+      color: var(--orange);
+      font-family: var(--primary-font);
+      font-size: 39px;
+      font-style: normal;
+      font-weight: 700;
+      line-height: 115%;
+    }
+
+    .work-introduction {
+      color: var(--dark);
+      font-family: var(--primary-font);
+      font-size: 25px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: 140%;
+    }
+
+    .workIcon {
+      max-height: 75px;
+      width: auto;
+      position: absolute ;
+      bottom: 50px;
+    }
+  }
+
+  &:hover {
+    background: var(--secondary-color);
+
+    .content {
+
+      h3 {
+        color: var(--primary-color-lighter);
+      }
+
+      .work-introduction {
+        color: var(--white);
+      }
+
+      .workIcon {
+        //filter: invert(0%) sepia(0%) saturate(0%) hue-rotate(0deg) brightness(200%) contrast(100%);
+        filter: brightness(235%);
+      }
+
+    }
+  }
+}
+
+@media screen and (max-width:1400px) {
+  .work-card {
+    .content {
+      gap: 30px;
+      .workIcon {
+        bottom: 25px;
+      }
+    }
+  }
+}
+
+@media screen and (max-width:992px) {
+  .work-section {
+    padding: 55px 0;
+
+    .intro-wrapper {
+      margin-bottom: 15px;
+    }
+
+    .row {
+      flex-wrap: wrap;
+    }
+  }
+
+  .work-card {
+    padding: 40px 31px;
+    min-height: 420px;
+
+    .content {
+      gap: 20px;
+
+      h3 {
+        font-size: 31px;
+      }
+
+      .work-introduction {
+        font-size: 20px;
+      }
+
+      .workIcon {
+        width: 65px;
+        height: 64px;
+      }
+    }
+  }
+}

@@ -1,0 +1,214 @@
+.eventsSection {
+  padding: 1rem 0;
+}
+
+.event-card {
+  background: #ECF4FF;
+  border-top: 1px solid var(--dark-blue);
+  padding: 25px 30px;
+  text-decoration: none;
+  color: initial;
+
+  display: block;
+  gap: 41px;
+  grid-template-columns: .6fr 2fr 1fr;
+  min-height: 390px;
+
+  .metadata {
+    background: url('../../Icons/icon-calendar.svg') no-repeat left center;
+    display: flex;
+    flex-direction: column;
+    padding-left: 44px;
+    height: 52px;
+    margin-bottom: 15px;
+
+    .date {
+      color: var(--black);
+      font-family: var(--neue-font);
+      font-size: 16px;
+      font-style: normal;
+      font-weight: 500;
+      line-height: 130%;
+      letter-spacing: 1.5px;
+    }
+
+    .venue {
+      color: var(--black);
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+
+      span {
+        color: var(--black);
+        font-family: var(--secondary-font);
+        font-size: 20px;
+        font-style: normal;
+        font-weight: 450;
+        line-height: 130%;
+        letter-spacing: 0.06px;
+      }
+    }
+
+    .tag {
+      margin-bottom: 5px;
+      text-transform: capitalize;
+    }
+  }
+
+  .basic-info {
+    h4 {
+      color: var(--dark-blue);
+      font-family: var(--primary-font);
+      font-size: 1.563rem;
+      font-style: normal;
+      font-weight: 600;
+      line-height: 115%;
+      margin: 0;
+      padding: 0;
+      margin-bottom: 15px;
+    }
+
+    .introduction {
+      color: var(--black);
+      font-family: var(--neue-font);
+      font-size: 20px;
+      font-style: normal;
+      font-weight: 450;
+      line-height: 130%;
+      letter-spacing: 1.5px;
+      margin: 0;
+      padding: 0;
+      margin-bottom: 25px;
+    }
+
+    .custom-btn {
+      border-color: var(--black);
+      color: var(--black);
+    }
+  }
+
+  .image {
+    * {
+      height: 100%;
+    }
+
+    img {
+      width: 100%;
+      object-fit: cover !important;
+    }
+  }
+
+  &:hover {
+
+    .custom-btn {
+      background-color: var(--primary-color);
+      color: var(--white);
+      border-color: transparent;
+    }
+  }
+
+  &.meeting {
+    background-color: var(--blue);
+    color: var(--white);
+    border-top: none;
+
+    .metadata {
+      background: url('../../Icons/unmeeting-inverted-icon.svg') no-repeat left center;
+      gap: 0;
+      height: 57px;
+      margin-bottom: 1rem;
+      padding-left: 4.5rem;
+
+      .date {
+        color: var(--white);
+      }
+    }
+
+    .basic-info {
+      color: var(--white);
+
+      h4 {
+        color: var(--white);
+      }
+
+      .introduction {
+        color: var(--white);
+      }
+
+    }
+
+    &:hover {
+      background-color: darken(#3498DB, 5);
+    }
+  }
+
+}
+
+@media screen and (max-width: 992px) {
+  .event-card {
+    padding: 26px 19px;
+    display: flex;
+    gap: 20px;
+    flex-direction: column;
+
+    .image {
+      order: 1;
+      height: 180px;
+
+      * {
+        width: 100%;
+      }
+    }
+
+    .metadata {
+      order: 2;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      align-items: center;
+
+      .date {
+        font-size: 15px;
+        line-height: 130%;
+        order: 1;
+      }
+
+      .venue {
+        order: 3;
+        gap: 10px;
+
+        span {
+          font-size: 15px;
+          line-height: 130%;
+        }
+      }
+
+      .tags-list {
+        order: 2;
+        justify-content: flex-end;
+      }
+    }
+
+    .basic-info {
+      order: 3;
+
+      h4 {
+        font-size: 23px;
+        line-height: 120%;
+        margin-bottom: 10px;
+      }
+
+      .introduction {
+        font-size: 15px;
+        line-height: 130%;
+        margin-bottom: 15px;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 767px) {
+
+  .event-card {
+    min-height: auto;
+  }
+}

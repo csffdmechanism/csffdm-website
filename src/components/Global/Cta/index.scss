@@ -1,0 +1,97 @@
+.ctas {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+}
+
+.custom-btn {
+  display: inline-block;
+  padding: 0;
+  margin: 0;
+  border: none;
+  cursor: pointer;
+
+  color: var(--white);
+  font-family: var(--primary-font);
+  font-family: Mundial;
+  font-size: 22px;
+  font-style: normal;
+  font-weight: 500;
+  /*line-height: 100%;*/
+  line-height: 55px;
+  text-decoration: none;
+  /*padding: 16px 18px;*/
+  padding: 0 18px 3px;
+  border-radius: 5px;
+  border: 2px solid var(--white);
+  text-align: center;
+
+  &:hover {
+    color: var(--primary-color);
+    background-color: var(--white);
+  }
+
+  &.custom-btn-primary {
+    color: var(--white);
+    background: var(--orange);
+    border-color: var(--orange);
+
+    &:hover {
+      background: #BA6900;
+      border-color: #BA6900;
+    }
+  }
+
+  &.custom-btn-secondary {
+    background-color: var(--white);
+    color: var(--black);
+    border-color: var(--black);
+
+    &:hover {
+      background-color: rgba(0, 0, 0, 0.1);
+      color: var(--black);
+    }
+
+  }
+
+  &.default {
+    color: var(--black);
+    border-color: var(--black);
+    background-color: transparent;
+  }
+
+  &.custom-btn-play {
+    background-image: url('../../Icons/btn-play.svg');
+    background-repeat: no-repeat;
+    background-position: 95% 1.25rem;
+    padding-right: 2.5rem;
+
+    &:hover {
+      background-image: url('../../Icons/btn-play-hover.svg');
+    }
+  }
+}
+
+@media screen and (max-width: 992px) {
+  .custom-btn {
+    font-size: 20px;
+    line-height: 52px;
+    /*padding: 13px 20px;*/
+    text-align: center;
+
+    &.custom-btn-play {
+      background-position: 95% 60%;
+    }
+  }
+
+  .ctas {
+    gap: 20px;
+  }
+}
+
+@media screen and (max-width: 575px) {
+  .custom-btn {
+    line-height: 48px;
+    width: 100%;
+  }
+}

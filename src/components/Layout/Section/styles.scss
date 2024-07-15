@@ -1,0 +1,175 @@
+.app-section {
+  padding: 70px 0;
+  position: relative;
+  overflow: hidden;
+  z-index: 9;
+
+  .header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 25px;
+
+    h3 {
+      color: var(--dark);
+      font-family: var(--primary-font);
+      font-size: 3rem;
+      font-style: normal;
+      font-weight: 700;
+      line-height: 115%;
+      margin: 0;
+      padding: 0;
+    }
+
+    .h4 {
+      font-size: 2.438rem;
+    }
+  }
+
+  .introduction {
+    max-width: 870px;
+    margin-bottom: 39px;
+    color: var(--dark);
+    font-family: var(--primary-font);
+    font-size: 25px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 140%;
+    position: relative;
+    z-index: 1;
+  }
+
+  .mobile-ctas {
+    display: none;
+  }
+
+  .header,
+  .content {
+    position: relative;
+    z-index: 1;
+  }
+
+  .fixed-image {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    height: auto;
+    max-height: 100%;
+    // z-index: 1;
+  }
+
+  &.past-events {
+
+    padding: 50px 0 100px;
+    .h4 {
+      font-size: 1.938rem;
+      font-weight: 600;
+    }
+  }
+
+  &.meetings {
+    background-color: #E4F1FA;
+
+    &.future-meeting {
+      padding-bottom: 0;
+
+      .event-card.meeting {
+        background-color: transparent;
+        color: var(--dark);
+        padding: 0;
+        height: 356px;
+
+        .event-card-data {
+          padding-top: 2rem;
+        }
+
+        .basic-info {
+
+          h4 { 
+            color: var(--dark-blue);
+            font-size: 1.938rem;
+          }
+
+          .introduction {
+            color: var(--dark);
+            max-width: none;
+          }
+        }
+
+        .metadata {
+          background: url('../../Icons/unmeeting-icon.svg') no-repeat left center;
+          
+
+          .date {
+            color: var(--dark-blue);
+          }
+        }
+
+        .image {
+          max-width: 45%;
+          height: 100%;
+          float: left;
+          background-color: white;
+          margin-right: 1.5rem;
+          padding: 1.5rem;
+        }
+      }
+    }
+
+    &.past-meetings {
+
+      .h4 {
+        font-size: 1.938rem;
+        font-weight: 600;
+      }
+    }
+  }
+
+  &.events {
+    background: #F9FCFF;
+  }
+
+  &.resources {
+    background: rgba(248, 243, 234, 0.40);
+  }
+
+  &.news {
+    background-color: rgba(248, 243, 234, 0.40);
+    padding: 50px 0;
+  }
+}
+
+@media screen and (max-width:992px) {
+  .app-section {
+    margin: 0;
+    padding: 45px 0 45px 0;
+
+    .header {
+      margin-bottom: 20px;
+
+      h4,
+      h3 {
+        font-size: 31px !important;
+      }
+
+      .desktop-ctas {
+        display: none;
+      }
+    }
+
+    .header-children {
+      display: none;
+    }
+
+    .introduction {
+      max-width: 100%;
+      margin-bottom: 20px;
+      font-size: 20px;
+      line-height: 135%
+    }
+
+    .fixed-image {
+      display: none;
+    }
+  }
+}
