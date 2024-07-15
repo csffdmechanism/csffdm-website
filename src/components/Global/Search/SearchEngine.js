@@ -8,14 +8,14 @@ import headerLogo from '../../Icons/Logo Component.svg';
 
 import './index.scss';
 
-const client = buildClient({ apiToken: 'c2b76217af13c090bb6eb1e214d2ac' });
+const client = buildClient({ apiToken: process.env.GATSBY_DATO_API_TOKEN_CONTENT });
 
 export default function SearchEngine({ searchEngineVisible, setSearchEngineVisible }) {
   const [query, setQuery] = useState('');
 
   const { state, error, data } = useSiteSearch({
     client,
-    buildTriggerId: '26249',
+    buildTriggerId: '33595',
     resultsPerPage: 10,
   });
 
