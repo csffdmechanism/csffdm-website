@@ -419,6 +419,36 @@ exports.createPages = ({ graphql, actions }) => {
           });
         }
 
+        const { createRedirect } = actions;
+        createRedirect({
+          fromPath: '/ffd-forum-2/',
+          toPath: '/conference/ffd-forum/',
+          isPermanent: true,
+          redirectInBrowser: true,
+          force: true,
+        });
+        createRedirect({
+          fromPath: '/about/',
+          toPath: '/the-mechanism/',
+          isPermanent: true,
+          redirectInBrowser: true,
+          force: true,
+        });
+        createRedirect({
+          fromPath: '/join-the-cso-ffd-group/',
+          toPath: '/the-mechanism/',
+          isPermanent: true,
+          redirectInBrowser: true,
+          force: true,
+        });
+        createRedirect({
+          fromPath: '/wp-content/uploads/2020/05/cso-ffd-group-intro-governance-may-2019.pdf',
+          toPath: 'https://www.datocms-assets.com/120585/1721080519-cso-ffd-group-intro-governance-may-2019.pdf',
+          isPermanent: true,
+          redirectInBrowser: true,
+          force: true,
+        });
+
       })
     );
   });
