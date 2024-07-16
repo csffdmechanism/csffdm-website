@@ -448,7 +448,6 @@ exports.createPages = ({ graphql, actions }) => {
           redirectInBrowser: true,
           force: true,
         });
-
       })
     );
   });
