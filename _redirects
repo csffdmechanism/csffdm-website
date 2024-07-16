@@ -1,0 +1,12 @@
+
+# @netlify/plugin-gatsby redirects start
+
+# @netlify/plugin-gatsby redirects end
+## Created with gatsby-plugin-netlify
+
+# @netlify/plugin-gatsby redirects start
+# gatsby-adapter-netlify start
+
+# gatsby-adapter-netlify end
+
+/20[0-9]{2}/[0-1][0-9]/[0-3][0-9]/* /post/:splat 301!
