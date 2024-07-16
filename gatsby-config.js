@@ -35,12 +35,12 @@ module.exports = {
       resolve: 'gatsby-plugin-netlify',
       options: {
         redirects: [
-          {
-            fromPath: '^/([0-9]{4})/([0-9]{2})/([0-9]{2})/(.+)$',
-            toPath: '/post/$4',
-            statusCode: 301,
-            force: true,
-          },
+          // {
+          //   fromPath: '^/([0-9]{4})/([0-9]{2})/([0-9]{2})/(.+)$',
+          //   toPath: '/post/$4',
+          //   statusCode: 301,
+          //   force: true,
+          // },
           {
             fromPath: '/about/',
             toPath: '/the-mechanism/',
