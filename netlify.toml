@@ -4,12 +4,6 @@ base = "/"
 publish = "public"
 
 [[redirects]]
-  from = "/([0-9]{4})/([0-9]{2})/([0-9]{2})/*"
-  to = "/post/:splat"
-  status = 301
-  force = true
-
-[[redirects]]
   from = "/join-the-cso-ffd-group"
   to = "/the-mechanism"
 
@@ -156,3 +150,8 @@ publish = "public"
 [[redirects]]
   from = "/2023/07/13/the-complete-toolkit-an-introductory-guide-to-ffd"
   to = "/post/the-complete-toolkit-an-introductory-guide-to-ffd"
+
+[[redirects]]
+  from = "/:year(\\d{4})/:month(\\d{2})/:day(\\d{2})/*"
+  to = "/post/:splat"
+  status = 301
