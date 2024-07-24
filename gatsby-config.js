@@ -41,24 +41,24 @@ module.exports = {
           //   statusCode: 301,
           //   force: true,
           // },
-          {
-            fromPath: '/about/',
-            toPath: '/the-mechanism/',
-            statusCode: 301,
-            force: true,
-          },
-          {
-            fromPath: '/join-the-cso-ffd-group/',
-            toPath: '/the-mechanism/',
-            statusCode: 301,
-            force: true,
-          },
-          {
-            fromPath: '/ffd-forum-2/',
-            toPath: '/conference/ffd-forum/',
-            statusCode: 301,
-            force: true,
-          },
+          // {
+          //   fromPath: '/about/',
+          //   toPath: '/the-mechanism/',
+          //   statusCode: 301,
+          //   force: true,
+          // },
+          // {
+          //   fromPath: '/join-the-cso-ffd-group/',
+          //   toPath: '/the-mechanism/',
+          //   statusCode: 301,
+          //   force: true,
+          // },
+          // {
+          //   fromPath: '/ffd-forum-2/',
+          //   toPath: '/conference/ffd-forum/',
+          //   statusCode: 301,
+          //   force: true,
+          // },
           // {
           //   fromPath: '^/wp-content/uploads/([0-9]{4})/([0-9]{2})/(.+)$',
           //   toPath: 'https://www.datocms-assets.com/120585/$3',
