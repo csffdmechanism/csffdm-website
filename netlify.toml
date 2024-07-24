@@ -4,6 +4,12 @@ base = "/"
 publish = "public"
 
 [[redirects]]
+  from = "/:year(\\d{4})/:month(\\d{2})/:day(\\d{2})/*"
+  to = "/post/:splat"
+  status = 301
+  force = true
+  
+[[redirects]]
   from = "/join-the-cso-ffd-group"
   to = "/the-mechanism"
 
