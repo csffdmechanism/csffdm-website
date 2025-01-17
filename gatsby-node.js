@@ -461,13 +461,3 @@ exports.onCreateWebpackConfig = ({ actions, getConfig }) => {
     ],
   });
 };
-exports.createPages = ({ actions }) => {
-  const { createRedirect } = actions;
-
-  createRedirect({
-    fromPath: '/resource/intervention-by-chenai-mukumba-second-session-ad-hoc-committee-to-draft-terms-of/',
-    toPath: '/resources/intervention-by-chenai-mukumba-second-session-ad-hoc-committee-to-draft-terms-of/',
-    isPermanent: true, // Set to true for a 301 redirect, false for a 302 redirect
-    redirectInBrowser: true, // Optional: redirects will work in the browser as well
-  });
-};
