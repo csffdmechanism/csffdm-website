@@ -20,8 +20,33 @@
     color: var(--white);
   }
 
+  /* New Image Styling */
+  .resource-card-image {
+    width: 100%; /* Ensures the image spans the full width of the card */
+    height: 250px; /* Fixed height for the image */
+    background-color: #f4f4f4; /* Light background if the image is missing */
+    position: relative;
+    overflow: hidden; /* Ensures any overflow from the image is hidden */
+  }
+
+  .resource-card-image-wrapper {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+  }
+
+  .resource-card-image-wrapper img {
+    object-fit: cover; /* Ensures the image covers the container without distortion */
+    width: 100%;
+    height: 100%;
+  }
+
   .basic-information {
-    font-size: 1.563rem;
+    font-size: 1.26rem;
     color: var(--white);
 
     h2 {
@@ -34,7 +59,7 @@
     }
 
     h4 {
-      font-size: 1.563rem;
+      font-size: 1.26rem;
       font-weight: 700;
     }
   }
@@ -54,11 +79,12 @@
   .tag {
     background: var(--dark-blue);
     color: var(--secondary-bg-color);
+    margin-top: 5px;
   }
 
   .date {
     font-family: var(--neue-font);
-    margin: 0.75rem 0;
+    margin: 0.1rem 0;
     display: block;
     color: var(--white);
     letter-spacing: 1.5px;
@@ -97,7 +123,6 @@
   }
 
   &.database_of_statements {
-
     height: 402px;
     min-height: 100%;
 
@@ -105,7 +130,7 @@
       display: block;
       height: 100%;
     }
-    
+
     .basic-information {
       margin-top: 1rem;
 
@@ -115,9 +140,8 @@
     }
 
     &:hover {
-
       .basic-information {
-        display: block  ;
+        display: block;
       }
 
       .resource-introduction {
@@ -127,7 +151,7 @@
       .btn-img {
         display: block;
       }
-  
+
       .custom-btn-primary {
         display: none;
       }
@@ -147,8 +171,7 @@
   }
 }
 
-@media screen and (max-width:992px) {
-
+@media screen and (max-width: 992px) {
   .resources-section {
     padding-top: 70px;
 
@@ -163,13 +186,12 @@
     margin-bottom: 15px;
 
     .basic-information {
-
       h2,
       h4 {
-        font-size: 20px;
+        font-size: 19px;
         font-style: normal;
         font-weight: 700;
-        line-height: 120%;
+        line-height: 100%;
       }
     }
 
@@ -181,6 +203,15 @@
       left: 0;
       width: 95%;
       margin: 0 2.5%;
+    }
+
+    /* Adjust image styles for smaller screens */
+    .resource-card-image {
+      height: 200px; /* Adjust height for smaller screens */
+    }
+
+    .resource-card-image-wrapper img {
+      object-fit: cover; /* Keep the image properly scaled and cropped */
     }
   }
 }
