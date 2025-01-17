@@ -67,5 +67,21 @@ module.exports = {
         ],
       },
     },
+    {
+      resolve: 'gatsby-plugin-google-gtag',
+      options: {
+        trackingIds: [
+          'G-D40FLLH587', // Google Analytics Measurement ID
+        ],
+        gtagConfig: {
+          anonymize_ip: true, // Optional: anonymize IP addresses
+          cookie_expires: 0, // Optional: set cookie expiration
+        },
+        pluginConfig: {
+          head: true, // Optional: include script in <head> instead of <body>
+          respectDNT: true, // Optional: respect "Do Not Track" settings
+        },
+      },
+    },
   ],
 };
