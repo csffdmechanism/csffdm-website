@@ -24,12 +24,13 @@ module.exports = {
     'gatsby-plugin-sharp',
     'gatsby-transformer-sharp',
     'gatsby-plugin-react-helmet',
-     {
-        resolve: 'gatsby-plugin-mailchimp',
-        options: {
-            endpoint: 'https://sidint.us17.list-manage.com/subscribe/post?u=1ba8e4790b637950a94f17b25&amp;id=0d1ec580c7&amp;f_id=00ad2ee1f0', // string; add your MC list endpoint here; see instructions below
-            timeout: 3500, // number; the amount of time, in milliseconds, that you want to allow mailchimp to respond to your request before timing out. defaults to 3500
-        },
+    {
+      resolve: 'gatsby-plugin-mailchimp',
+      options: {
+        endpoint:
+          'https://sidint.us17.list-manage.com/subscribe/post?u=1ba8e4790b637950a94f17b25&amp;id=0d1ec580c7&amp;f_id=00ad2ee1f0', // string; add your MC list endpoint here; see instructions below
+        timeout: 3500, // number; the amount of time, in milliseconds, that you want to allow mailchimp to respond to your request before timing out. defaults to 3500
+      },
     },
     {
       resolve: 'gatsby-plugin-netlify',
@@ -65,6 +66,22 @@ module.exports = {
           //   statusCode: 301,
           // },
         ],
+      },
+    },
+    {
+      resolve: 'gatsby-plugin-google-gtag',
+      options: {
+        trackingIds: [
+          'G-D40FLLH587', // Google Analytics Measurement ID
+        ],
+        gtagConfig: {
+          anonymize_ip: true, // Optional: anonymize IP addresses
+          cookie_expires: 0, // Optional: set cookie expiration
+        },
+        pluginConfig: {
+          head: true, // Optional: include script in <head> instead of <body>
+          respectDNT: true, // Optional: respect "Do Not Track" settings
+        },
       },
     },
   ],
