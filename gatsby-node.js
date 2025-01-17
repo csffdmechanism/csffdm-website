@@ -184,7 +184,6 @@ exports.createPages = ({ graphql, actions }) => {
             title
             slug
           }
-
         }
       `).then((result) => {
         if (result.errors) {
@@ -253,7 +252,7 @@ exports.createPages = ({ graphql, actions }) => {
 
         const posts = result.data.posts.edges;
         for (const post of posts) {
-          const tags = post.node.tags.map((tag) => tag.title); 
+          const tags = post.node.tags.map((tag) => tag.title);
           createPage({
             path: '/post/' + post.node.slug,
             component: templates.post,
@@ -396,7 +395,7 @@ exports.createPages = ({ graphql, actions }) => {
 
         const events = result.data.events.edges;
         for (const event of events) {
-          const tags = event.node.tags.map((tag) => tag.title); 
+          const tags = event.node.tags.map((tag) => tag.title);
           createPage({
             path: '/event/' + event.node.slug,
             component: templates.event,
@@ -460,5 +459,15 @@ exports.onCreateWebpackConfig = ({ actions, getConfig }) => {
         exclude: /mini-css-extract-plugin[^]*Conflicting order. Following module has been added:/,
       }),
     ],
+  });
+};
+exports.createPages = ({ actions }) => {
+  const { createRedirect } = actions;
+
+  createRedirect({
+    fromPath: '/resource/intervention-by-chenai-mukumba-second-session-ad-hoc-committee-to-draft-terms-of/',
+    toPath: '/resources/intervention-by-chenai-mukumba-second-session-ad-hoc-committee-to-draft-terms-of/',
+    isPermanent: true, // Set to true for a 301 redirect, false for a 302 redirect
+    redirectInBrowser: true, // Optional: redirects will work in the browser as well
   });
 };
