@@ -66,10 +66,19 @@ function Resources({ pageContext, data: { page, resources = [], tags, favicon } 
   const [innerTitle, setInnerTitle] = useState('');
   // const [innerTitleArea, setInnerTitleArea] = useState('');
 
-  // State for selected filters
   const [selectedTag, setSelectedTag] = useState('');
-  const [selectedType, setSelectedType] = useState(params.get('type') ? filtersByType.find((f) => f.value === params.get('type')).value : 'Explore all resources');
-  const selectedTypeLabel = params.get('type') ? filtersByType.find((f) => f.value === params.get('type')).label : 'Explore all resources';
+  
+  const [selectedType, setSelectedType] = useState(() => {
+    const typeParam = params.get('type'); // Check if 'type' is passed in URL parameters
+    return typeParam
+      ? filtersByType.find((f) => f.value === typeParam)?.value || '' // Use the value if valid; otherwise, default to empty string
+      : ''; // Default to empty string for neutrality
+  });
+
+  // Get label for 'Filter by type of resource' dropdown
+  const selectedTypeLabel = selectedType
+    ? filtersByType.find((f) => f.value === selectedType)?.label || 'Explore all resources'
+    : 'Explore all resources';
 
   // Filter function
   const filterItems = (tag, type) => {
@@ -79,7 +88,7 @@ function Resources({ pageContext, data: { page, resources = [], tags, favicon } 
       filtered = filtered.filter((post) => post.tags.some((t) => t.title === tag));
     }
 
-    if (type) {
+    if (type && type !== 'Explore all resources') {
       filtered = filtered.filter((post) => post.typeOfResource === type);
     }
 
