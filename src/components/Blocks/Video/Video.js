@@ -13,11 +13,11 @@ function Video({ content, withContainer = false }) {
           <VideoPlayer video={content?.video} />
         </div>
       )}
-      {!content?.video && content.local_video_url && (
+      {!content?.video && content.localVideoUrl && (
         <iframe
           width="560"
           height="315"
-          src={content.local_video_url}
+          src={content.localVideoUrl}
           frameBorder="0"
           allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
           allowFullScreen
@@ -36,7 +36,7 @@ function Video({ content, withContainer = false }) {
         ></iframe>
       )}
 
-      {!content?.video && !content.local_video_url && !isExternalVideoUrl(content.youtubeUrl) && (
+      {!content?.video && !content.localVideoUrl && !isExternalVideoUrl(content.youtubeUrl) && (
         <p>No valid video source found.</p>
       )}
     </>
