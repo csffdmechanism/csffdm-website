@@ -40,6 +40,7 @@ function Resources({ pageContext, data: { page, resources = [], tags, favicon } 
     { value: 'campaign_resources_and_tools', label: 'Campaign Resources and Tools' },
     { value: 'introduction_toolkit', label: 'Introduction Toolkit' },
     { value: 'statements_and_interventions', label: 'CS FFD Mechanism Statements and Inputs' },
+    { value: 'interventions', label: 'Interventions' },
   ]);
 
   const [innerTitle, setInnerTitle] = useState('');
