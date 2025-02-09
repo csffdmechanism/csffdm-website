@@ -20,9 +20,7 @@ function EventsDistributor({ pageContext, data: { page, events = [], tags, favic
   // const [filters, setFilters] = useState(() =>
   //   Array.from(new Set(events.edges.flatMap((e) => e.node.tags.map((t) => t.title))))
   // );
-  const [filters, setFilters] = useState(() =>
-    Array.from(new Set(tags.edges.flatMap((e) => e.node.title)))
-  );
+  const [filters, setFilters] = useState(() => Array.from(new Set(tags.edges.flatMap((e) => e.node.title))));
 
   const handleOnFilterPosts = (currentTag) => {
     if (currentTag) {
@@ -52,34 +50,32 @@ function EventsDistributor({ pageContext, data: { page, events = [], tags, favic
         {introduction && introduction.length > 0 && (
           <div className="page-introduction">
             <div className="row">
-              <div className='col-12' dangerouslySetInnerHTML={{ __html: introduction }} />
+              <div className="col-12" dangerouslySetInnerHTML={{ __html: introduction }} />
             </div>
           </div>
         )}
         <div className="row page-grid">
           <div className="filters">
-            
-              <div className='col'>
-                <h3>Find by topics</h3>
-                <Dropdown options={filters.map((f) => ({ value: f, label: f }))} onSelect={handleOnFilterPosts} />
-              </div>
-              <div className='col'>
-                <h3>Find by date</h3>
-                <Dropdown
-                  options={[
-                    // Add code here to generate years until last with descending order starting from ten years ago
-                    ...Array.from({ length: new Date().getFullYear() - 10 }, (_, i) => ({
-                      value: (new Date().getFullYear() - i).toString(),
-                      label: (new Date().getFullYear() - i).toString(),
-                    })).slice(0, 10), // Limit the array to 10 elements
-                  ]}
-                  onSelect={handleOnFilterPostsByYear}
-                />
-              </div>
-
+            <div className="col">
+              <h3>Find by topics</h3>
+              <Dropdown options={filters.map((f) => ({ value: f, label: f }))} onSelect={handleOnFilterPosts} />
+            </div>
+            <div className="col">
+              <h3>Find by date</h3>
+              <Dropdown
+                options={[
+                  // Add code here to generate years until last with descending order starting from ten years ago
+                  ...Array.from({ length: new Date().getFullYear() - 10 }, (_, i) => ({
+                    value: (new Date().getFullYear() - i).toString(),
+                    label: (new Date().getFullYear() - i).toString(),
+                  })).slice(0, 10), // Limit the array to 10 elements
+                ]}
+                onSelect={handleOnFilterPostsByYear}
+              />
+            </div>
           </div>
 
-          { filteredPosts.length === 0 && (
+          {filteredPosts.length === 0 && (
             <div className="col-12">
               <h4>There are no records matching the filter criteria. Please select another option and try again.</h4>
             </div>
@@ -87,11 +83,14 @@ function EventsDistributor({ pageContext, data: { page, events = [], tags, favic
 
           <ListPaginated
             list={filteredPosts}
-            renderItem={(post) => (
-              <div className="col-md-4" key={post.id}>
-                <EventCard event={post} type="event" />
-              </div>
-            )}
+            renderItem={(post) => {
+              const isFutureEvent = new Date(post.date) > new Date();
+              return (
+                <div className="col-md-4" key={post.id}>
+                  <EventCard event={post} type="event" future={isFutureEvent} />
+                </div>
+              );
+            }}
           />
         </div>
       </div>
@@ -141,7 +140,7 @@ export const NewsDistributorQuery = graphql`
         ...GatsbyDatoCmsSeoMetaTags
       }
     }
-    events: allDatoCmsEvent {
+    events: allDatoCmsEvent(sort: { date: DESC }) {
       edges {
         node {
           id

@@ -28,7 +28,7 @@ const EventCard = ({ event, type = 'event', future = false }) => {
               <span class="tag">Past Event</span>
             </div>
           )}
-          
+
           {type === 'meeting' && future && (
             <div class="tags-list">
               <span class="tag">Upcoming UN Meeting</span>
@@ -49,23 +49,22 @@ const EventCard = ({ event, type = 'event', future = false }) => {
             <div className="introduction" dangerouslySetInnerHTML={{ __html: truncateText(introduction, 200) }} />
           )}
         </div>
-
       </div>
     </>
   );
 
   return (
     <>
-    { externalUrl && (
-      <a href={externalUrl} className={`event-card ${type}`} target='blank'>
-        {renderContent()}
-      </a>
-    )}
-    { !externalUrl && (
-      <Link to={event} className={`event-card ${type}`}>
-        {renderContent()}
-      </Link>
-    )}
+      {externalUrl && (
+        <a href={externalUrl} className={`event-card ${type}`} target="blank">
+          {renderContent()}
+        </a>
+      )}
+      {!externalUrl && (
+        <Link to={event} className={`event-card ${type}`}>
+          {renderContent()}
+        </Link>
+      )}
     </>
   );
 };
