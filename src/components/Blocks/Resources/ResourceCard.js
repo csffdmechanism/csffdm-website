@@ -29,7 +29,7 @@ const ResourceCard = ({ resource, className = '' }) => {
             className="resource-card-image" // Add class for styling
           />
         ) : (
-          <div className="resource-card-image-placeholder">No Image Available</div>
+          <div className="resource-card-image-placeholder"></div>
         )}
 
         {isArray(tags) ? <TagList tags={tags} /> : <div className="tags-list" />}
