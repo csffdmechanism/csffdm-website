@@ -30,9 +30,10 @@
         padding: 20px;
         font-size: 20px !important;
         font-style: normal;
-        font-weight: 400 !important;
-        line-height: 150% !important;
-        font-family: 'neue-haas-grotesk-display';
+        font-weight: 450 !important;
+        line-height: 145% !important;
+        font-family: var(--neue-font);
+        color: var(--dark);
 
         a {
           color: var(--primary-color);
