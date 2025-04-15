@@ -19,7 +19,7 @@ import EmbedIframe from './EmbedIframe/EmbedIframe';
 import GenericCardGrid from './GenericCardGrid/GenericCardGrid';
 import Cta from '../Global/Cta/Cta';
 
-export default function Blocks({ blocks, usePrimaryHeading = false, fixedCard = true, homePage = true}) {
+export default function Blocks({ blocks, usePrimaryHeading = false, fixedCard = true, homePage = true }) {
   return (
     <>
       {blocks.map((block, index) => {
@@ -61,13 +61,13 @@ export default function Blocks({ blocks, usePrimaryHeading = false, fixedCard = 
           case 'DatoCmsGenericCardGrid':
             return <GenericCardGrid key={block.id} {...block} />;
           case 'DatoCmsImage':
-            return (
-              <div className='image-block'>
-                <div className='container'>
-                  <GatsbyImage key={block.id} image={block.image.gatsbyImageData} alt={block.image.alt}  />
+            return block.image?.gatsbyImageData ? (
+              <div className="image-block">
+                <div className="container">
+                  <GatsbyImage key={block.id} image={block.image.gatsbyImageData} alt={block.image.alt || 'Image'} />
                 </div>
               </div>
-            );
+            ) : null;
           default:
             return null;
         }
