@@ -8,33 +8,34 @@ import './styles.scss';
 
 const EventCard = ({ event, type = 'event', future = false }) => {
   const { title, introduction, mainImage, image, date, tags = [], externalUrl } = event;
-
+  // Calculate if event is in the future based on actual date
+  const isEventInFuture = date ? new Date(date) > new Date() : future;
   const renderContent = () => (
     <>
-      {type === 'meeting' && future && (image?.gatsbyImageData || image?.url) && (
+      {type === 'meeting' && isEventInFuture && (image?.gatsbyImageData || image?.url) && (
         <div className="image">
           <ImageWrapper image={image} />
         </div>
       )}
       <div className="event-card-data">
         <div className="metadata">
-          {type === 'event' && future && (
+          {type === 'event' && isEventInFuture && (
             <div class="tags-list">
               <span class="tag">Upcoming Event</span>
             </div>
           )}
-          {type === 'event' && !future && (
+          {type === 'event' && !isEventInFuture && (
             <div class="tags-list">
               <span class="tag">Past Event</span>
             </div>
           )}
 
-          {type === 'meeting' && future && (
+          {type === 'meeting' && isEventInFuture && (
             <div class="tags-list">
               <span class="tag">Upcoming UN Meeting</span>
             </div>
           )}
-          {type === 'meeting' && !future && (
+          {type === 'meeting' && !isEventInFuture && (
             <div class="tags-list">
               <span class="tag">Past UN Meeting</span>
             </div>
