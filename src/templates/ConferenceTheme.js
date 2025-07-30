@@ -7,27 +7,45 @@ import ConferenceWrapper from '../components/Layout/Conference/ConferenceWrapper
 import StructuredTextDefault from '../components/Blocks/StructuredTextDefault/StructuredTextDefault';
 import Blocks from '../components/Blocks/Blocks';
 
-const ConferenceTheme = ({ pageContext, data: { parentConference, topic, prevConferences, favicon } }) => {
+import ResourceCard from '../components/Blocks/Resources/ResourceCard';
+import ListPaginated from '../components/Global/Pagination/ListPaginated';
+import './basic.scss';
+
+const ConferenceTheme = ({ pageContext, data: { parentConference, topic, prevConferences, favicon, resources } }) => {
   const mappedPrevConferences = prevConferences.nodes;
   const { title: parentTitle, slug, heroImage, themes = [] } = parentConference;
   const { title, content, seo, blocks = [] } = topic || {};
 
-  const filteredPrevConferences = mappedPrevConferences.filter(event => event.eventType === parentConference.eventType);
+  // Check if this is "The FFD Chronicle" page and filter resources accordingly
+  const isFFDChroniclePage =
+    pageContext?.slug === 'the-ffd-chronicle' || title?.toLowerCase().includes('ffd chronicle');
+
+  // Filter resources to show only "The FFD Chronicle" type - with safety checks
+
+  const ffdChronicleResources =
+    resources?.edges
+      ?.map((e) => e.node)
+      ?.filter((resource) => resource?.typeOfResource === 'the_ffd_chronicle')
+      ?.sort((a, b) => new Date(b.date || 0) - new Date(a.date || 0)) || [];
+
+  const filteredPrevConferences = mappedPrevConferences.filter(
+    (event) => event.eventType === parentConference.eventType
+  );
 
   return (
     <Layout>
       <SeoDatoCMS seo={seo} favicon={favicon} />
-      <ConferenceHero 
-        title={parentTitle} 
-        image={heroImage} 
-        isInnerPage 
-        previousConferences={filteredPrevConferences} 
+      <ConferenceHero
+        title={parentTitle}
+        image={heroImage}
+        isInnerPage
+        previousConferences={filteredPrevConferences}
         eventType={parentConference.eventType}
       />
 
       <ConferenceWrapper themes={themes} slug={pageContext.fullSlug} parentSlug={slug}>
         <div>
-          <h2 className='section-title'>{title}</h2>
+          <h2 className="section-title">{title}</h2>
           {content?.value && <StructuredTextDefault content={content} />}
           {blocks && (
             <div className="blocks-wrapper">
@@ -36,6 +54,25 @@ const ConferenceTheme = ({ pageContext, data: { parentConference, topic, prevCon
           )}
         </div>
       </ConferenceWrapper>
+      {/* Add FFD Chronicle resources section if this is the FFD Chronicle page */}
+      {isFFDChroniclePage && ffdChronicleResources.length > 0 && (
+        <div className="container basic-layout">
+          <div className="row page-grid">
+            <div className="col-12">
+              <h2 className="inner-title">The FFD Chronicle Resources</h2>
+            </div>
+
+            <ListPaginated
+              list={ffdChronicleResources}
+              renderItem={(resource) => (
+                <div className="col-md-4" key={resource.id}>
+                  <ResourceCard resource={resource} />
+                </div>
+              )}
+            />
+          </div>
+        </div>
+      )}
     </Layout>
   );
 };
@@ -78,48 +115,48 @@ export const ConferenceThemeQuery = graphql`
                 isButton
                 style
                 link {
-                      ... on DatoCmsNews {
-                        slug
-                        model {
-                          apiKey
-                        }
-                      }
-                      ... on DatoCmsResource {
-                        slug
-                        model {
-                          apiKey
-                        }
-                      }
-                      ... on DatoCmsEvent {
-                        slug
-                        model {
-                          apiKey
-                        }
-                      }
-                      ... on DatoCmsConference {
-                        slug
-                        model {
-                          apiKey
-                        }
-                      }
-                      ... on DatoCmsPost {
-                        slug
-                        model {
-                          apiKey
-                        }
-                      }
-                      ... on DatoCmsBasicPage {
-                        slug
-                        model {
-                          apiKey
-                        }
-                      }
-                      ... on DatoCmsWork {
-                        slug
-                        model {
-                          apiKey
-                        }
-                      }
+                  ... on DatoCmsNews {
+                    slug
+                    model {
+                      apiKey
+                    }
+                  }
+                  ... on DatoCmsResource {
+                    slug
+                    model {
+                      apiKey
+                    }
+                  }
+                  ... on DatoCmsEvent {
+                    slug
+                    model {
+                      apiKey
+                    }
+                  }
+                  ... on DatoCmsConference {
+                    slug
+                    model {
+                      apiKey
+                    }
+                  }
+                  ... on DatoCmsPost {
+                    slug
+                    model {
+                      apiKey
+                    }
+                  }
+                  ... on DatoCmsBasicPage {
+                    slug
+                    model {
+                      apiKey
+                    }
+                  }
+                  ... on DatoCmsWork {
+                    slug
+                    model {
+                      apiKey
+                    }
+                  }
                 }
               }
             }
@@ -260,6 +297,28 @@ export const ConferenceThemeQuery = graphql`
         title
         slug
         eventType
+      }
+    }
+    resources: allDatoCmsResource {
+      edges {
+        node {
+          id
+          title
+          introduction
+          date
+          slug
+          typeOfResource
+          mainImage {
+            alt
+            gatsbyImageData
+          }
+          tags {
+            title
+          }
+          model {
+            apiKey
+          }
+        }
       }
     }
   }
