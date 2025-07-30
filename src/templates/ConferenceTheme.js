@@ -25,7 +25,11 @@ const ConferenceTheme = ({ pageContext, data: { parentConference, topic, prevCon
   const ffdChronicleResources =
     resources?.edges
       ?.map((e) => e.node)
-      ?.filter((resource) => resource?.typeOfResource === 'the_ffd_chronicle')
+      ?.filter((resource) => {
+        const hasCorrectType = resource?.typeOfResource === 'the_ffd_chronicle';
+        const hasConferenceFfdTag = resource?.tags?.some((tag) => tag.title?.toLowerCase() === 'conference ffd');
+        return hasCorrectType && hasConferenceFfdTag;
+      })
       ?.sort((a, b) => new Date(b.date || 0) - new Date(a.date || 0)) || [];
 
   const filteredPrevConferences = mappedPrevConferences.filter(
