@@ -52,27 +52,27 @@ const ConferenceTheme = ({ pageContext, data: { parentConference, topic, prevCon
               <Blocks blocks={blocks} fixedCard={false} homePage={false} />
             </div>
           )}
+          {/* Add FFD Chronicle resources section if this is the FFD Chronicle page */}
+          {isFFDChroniclePage && ffdChronicleResources.length > 0 && (
+            <div className="container basic-layout">
+              <div className="row page-grid">
+                <div className="col-12">
+                  <h2 className="inner-title">The FFD Chronicle Resources</h2>
+                </div>
+
+                <ListPaginated
+                  list={ffdChronicleResources}
+                  renderItem={(resource) => (
+                    <div className="col-md-4" key={resource.id}>
+                      <ResourceCard resource={resource} />
+                    </div>
+                  )}
+                />
+              </div>
+            </div>
+          )}
         </div>
       </ConferenceWrapper>
-      {/* Add FFD Chronicle resources section if this is the FFD Chronicle page */}
-      {isFFDChroniclePage && ffdChronicleResources.length > 0 && (
-        <div className="container basic-layout">
-          <div className="row page-grid">
-            <div className="col-12">
-              <h2 className="inner-title">The FFD Chronicle Resources</h2>
-            </div>
-
-            <ListPaginated
-              list={ffdChronicleResources}
-              renderItem={(resource) => (
-                <div className="col-md-4" key={resource.id}>
-                  <ResourceCard resource={resource} />
-                </div>
-              )}
-            />
-          </div>
-        </div>
-      )}
     </Layout>
   );
 };
