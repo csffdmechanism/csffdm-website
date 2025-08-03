@@ -58,7 +58,7 @@ const ConferenceTheme = ({ pageContext, data: { parentConference, topic, prevCon
           )}
           {/* Add FFD Chronicle resources section if this is the FFD Chronicle page */}
           {isFFDChroniclePage && ffdChronicleResources.length > 0 && (
-            <div className="container basic-layout">
+            <div className="container basic-layout" style={{ paddingTop: 0, paddingLeft: 0 }}>
               <div className="row page-grid">
                 <div className="col-12">
                   <h2 className="inner-title"></h2>
