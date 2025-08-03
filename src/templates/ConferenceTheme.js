@@ -27,7 +27,7 @@ const ConferenceTheme = ({ pageContext, data: { parentConference, topic, prevCon
       ?.map((e) => e.node)
       ?.filter((resource) => {
         const hasCorrectType = resource?.typeOfResource === 'the_ffd_chronicle';
-        const hasConferenceFfdTag = resource?.tags?.some((tag) => tag.title?.toLowerCase() === 'conference ffd');
+        const hasConferenceFfdTag = resource?.tags?.some((tag) => tag.title?.toLowerCase() === 'un tax convention');
         return hasCorrectType && hasConferenceFfdTag;
       })
       ?.sort((a, b) => new Date(b.date || 0) - new Date(a.date || 0)) || [];
@@ -61,13 +61,13 @@ const ConferenceTheme = ({ pageContext, data: { parentConference, topic, prevCon
             <div className="container basic-layout">
               <div className="row page-grid">
                 <div className="col-12">
-                  <h2 className="inner-title">The FFD Chronicle Resources</h2>
+                  <h2 className="inner-title"></h2>
                 </div>
 
                 <ListPaginated
                   list={ffdChronicleResources}
                   renderItem={(resource) => (
-                    <div className="col-md-4" key={resource.id}>
+                    <div className="col-md-6" key={resource.id}>
                       <ResourceCard resource={resource} />
                     </div>
                   )}
